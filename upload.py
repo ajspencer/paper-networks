@@ -23,6 +23,11 @@ urls = (
 #possible race condition when I upload two files at the same time?
 
 
+class graphHandler:
+    def GET(self):
+        web.header('Content-Type', 'text/html')
+        raise web.seeother('static/network.html')
+
 class networkHandler:
     """Used for getting the network in json format"""
     def GET(self):
@@ -35,11 +40,16 @@ class networkHandler:
         network = {}
         for i in range(len(authors)):
             #remove the unicode characters that are superflous in the string
-            #TODO: test the result of not removing them when on the webpage
             authorName = str(authors[i]['name'])
             authorConnections = str(authors[i]['adjacency'])
             authorConnections = re.sub('u[^a-zA-Z\d\s:]+','', authorConnections)
             authorConnections = authorConnections.split(',')
+            web.debug(authorConnections);
+            for j in range(len(authorConnections)):
+                if(len(authorConnections[j]) > 0 and authorConnections[j][len(authorConnections[j]) - 1] == '\''):
+                    authorConnections[j] = authorConnections[j][:-1]
+                if(len(authorConnections[j]) > 0 and authorConnections[j][0] == ' '):
+                    authorConnections[j] = authorConnections[j][1:]
             network[authorName] = authorConnections
         cursor.close()
         db.close()

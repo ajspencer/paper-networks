@@ -106,6 +106,15 @@ section, footer, header, aside{
     border-bottom:1px solid #3d4043;
 }
 
+.button {
+    color: #7f858a !important;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-decoration: none !important;
+    top: 50%;
+    left: 50%;
+}
+
 #upload ul li{
 
     background-color:#333639;
