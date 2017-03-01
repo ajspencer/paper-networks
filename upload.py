@@ -38,18 +38,18 @@ class networkHandler:
         cursor.execute(sql)
         authors = cursor.fetchall()
         network = {}
-        for i in range(len(authors)):
+        for author in authors:
             #remove the unicode characters that are superflous in the string
-            authorName = str(authors[i]['name'])
-            authorConnections = str(authors[i]['adjacency'])
+            authorName = str(author['name'])
+            authorConnections = str(author['adjacency'])
             authorConnections = re.sub('u[^a-zA-Z\d\s:]+','', authorConnections)
             authorConnections = authorConnections.split(',')
             web.debug(authorConnections);
-            for j in range(len(authorConnections)):
-                if(len(authorConnections[j]) > 0 and authorConnections[j][len(authorConnections[j]) - 1] == '\''):
-                    authorConnections[j] = authorConnections[j][:-1]
-                if(len(authorConnections[j]) > 0 and authorConnections[j][0] == ' '):
-                    authorConnections[j] = authorConnections[j][1:]
+            for connection in authorConnections:
+                if(len(connection) > 0 and connection[len(connection) - 1] == '\''):
+                    connection = connection[:-1]
+                if(len(connection) > 0 and connection[0] == ' '):
+                    connection = connection[1:]
             network[authorName] = authorConnections
         cursor.close()
         db.close()
@@ -82,10 +82,10 @@ class networkHandler:
         #if it's a list there are multiple authors and we will iterate over the dictionary that contains their info
         if type(paperAuthors[0]) == list:
             authorsInThisList = []
-            listOfNames = paperAuthors[0]
+            listOfAuthors = paperAuthors[0]
             #iterate over every dictionary in the list
-            for j in range(len(listOfNames)):
-                thisName = removeNonAscii(listOfNames[j]['name'])
+            for author in listOfAuthors:
+                thisName = removeNonAscii(author['name'])
                 #if the one for this name does not already exist, make sure to add it!
                 sql = "select count(1) from network where name = %s"
                 cursor = db.cursor()
@@ -101,17 +101,17 @@ class networkHandler:
                 #no matter what, we need to add the name to the list of authors in the list
                 authorsInThisList.append(thisName)
             #now that we have all the authors, iterate over them and add their names to each of the lists
-            for j in range(len(authorsInThisList)):
-                thisName = removeNonAscii(authorsInThisList[j])
+            for author in authorsInThisList:
+                thisName = removeNonAscii(author)
                 myPartners = []
                 sql = "select adjacency from network where name = %s"
                 cursor = db.cursor()
                 cursor.execute(sql,thisName)
                 currentAdj = cursor.fetchone()
                 cursor.close()
-                for k in range(len(authorsInThisList)):
-                    if(thisName != authorsInThisList[k]):
-                        myPartners.append(authorsInThisList[k])
+                for k in authorsInThisList:
+                    if(thisName != author):
+                        myPartners.append(author)
                 sql = ("update network set adjacency = %s where name = %s")
                 #strip out the brackets from the conversion to string so that the adjacency list is just a comma deliminated list
                 cursor = db.cursor()
