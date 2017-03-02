@@ -171,7 +171,6 @@ class authorHandler:
         if(os.path.splitext('papers/' + name)[1] != '.pdf'):
             web.badrequest()
         if os.path.isfile('papers/' + name):
-            print("is file")
             #Call the API, generate a text file from the pdf so that we can extract the authors
             handler = service.FileHandler()
             result = handler.POST(os.path.abspath('papers/'+name))
@@ -183,8 +182,6 @@ class authorHandler:
             extractor = service.Extractor()
             result = (extractor.GET(os.path.abspath('papers/' + name + '.txt'), 'header'))
             paperName = result.keys()[0]
-            print("result")
-            print(result)
             #get the dictionary that contains a tuple that has the list of authors
             if(result[paperName]['authors']):
                 authors = result[paperName]['authors']['author']
