@@ -1,3 +1,4 @@
+"use strict";
 function sketchProc(processing) {
 
     /**
@@ -56,11 +57,17 @@ function sketchProc(processing) {
         processing.fill(255,255,255);
         processing.textAlign(CENTER);
         processing.text(this.name, this.x, this.y);
+        console.log(this.connections.length);
         for(var i = 0; i < this.connections.length; i++) {
             //Get the name of the connection
             if(this.connections[i] != '') { 
-                connection = this.connections[i];
+                var connection = this.connections[i];
+                connection = connection.substring(0, connection.length-1)
+                console.log(nodes);
+                console.log('connection' + connection);
+                console.log(nodes[connection]);
                 if(nodes[connection]) {
+                    console.log('processing line')
                     processing.line(this.x - this.radius, this.y, nodes[connection].x - this.radius, nodes[connection].y)
                 }
             }
@@ -89,8 +96,9 @@ function sketchProc(processing) {
                         }
                         var node = new Node(100 + random(window.innerWidth - 200), 100 + random(window.innerHeight - 200), name, []);
                         for(var i = 0; i < authors[name].length; i++) {
-                            connection = authors[name][i];
+                            var connection = authors[name][i];
                             node.connections.push(connection);
+                            console.log("total connections");
                             console.log(connection);
                         }
                         nodes[node.name] = node;
@@ -109,7 +117,7 @@ function sketchProc(processing) {
 
     var checkClickedNodes = function() {
             for(name in nodes) {
-                currentNode = nodes[name];
+                var currentNode = nodes[name];
                 if(currentNode.mouseOver()) {
                     console.log(currentNode.selected);
                     //If the node is not selected, select it
@@ -131,7 +139,7 @@ function sketchProc(processing) {
                     }
                     //If the list is too long, unselect the first node
                     if(selected.length > 2) {
-                        nodeToDelete = selected[0];    
+                        var nodeToDelete = selected[0];    
                         //Draw a node the same color as the background to get rid of the ellipse
                         processing.fill(205, 201, 201);
                         processing.ellipse(nodeToDelete.x,nodeToDelete.y, nodeToDelete.radius*2, nodeToDelete.radius*2);
@@ -185,7 +193,7 @@ function sketchProc(processing) {
      */
     var removeSelected = function() {
         //Store the length so we do the correct number of iterations, since we are moving as we go along
-        selectedLength = selected.length;
+        var selectedLength = selected.length;
         //For every selected node
         for(int i = 0; i < selectedLength; i++) {
             var removeMe = selected[0];

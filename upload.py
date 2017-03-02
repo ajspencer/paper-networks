@@ -8,6 +8,7 @@ import json
 import sys
 import pymysql
 from threading import Lock
+##Hack-y way of adding external package needed for reading PDFs
 sys.path.insert(0, 'CiteSeerExtractor/src')
 import service
 
@@ -39,7 +40,6 @@ class networkHandler:
         authors = cursor.fetchall()
         network = {}
         for author in authors:
-            #remove the unicode characters that are superflous in the string
             authorName = str(author['name'])
             authorConnections = str(author['adjacency'])
             authorConnections = re.sub('u[^a-zA-Z\d\s:]+','', authorConnections)
@@ -109,9 +109,9 @@ class networkHandler:
                 cursor.execute(sql,thisName)
                 currentAdj = cursor.fetchone()
                 cursor.close()
-                for k in authorsInThisList:
-                    if(thisName != author):
-                        myPartners.append(author)
+                for otherAuthor in authorsInThisList:
+                    if(thisName != otherAuthor):
+                        myPartners.append(removeNonAscii(otherAuthor))
                 sql = ("update network set adjacency = %s where name = %s")
                 #strip out the brackets from the conversion to string so that the adjacency list is just a comma deliminated list
                 cursor = db.cursor()
@@ -138,36 +138,30 @@ class paperHandler:
     """Upload files given from the user to the server in the get request"""
     def POST(self):
         upload = web.input(image={})
+        directory = 'papers'
+        fileSubmit = authorHandler()
         #ensure that the file being uploaded is a pdf
-        if upload['image'].filename[-3:] != "pdf":
+        if 'image' not in upload or upload['image'].filename[-3:] != "pdf":
             web.ctx.status = '400 Please only upload .pdf files.'
             return
-        #if the work has already been done for this file, don't do the work again
-        #if os.path.isfile('papers/' + upload['image'].filename) and os.path.isfile('papers/' + upload['image'].filename + '.txt'):
-        #    web.debug('files already exist')
-        #    return
-        web.debug(os.path.isfile('papers/' + upload['image'].filename))
-        directory = 'papers'
+        name = upload.image.filename  #set the file name of the upload
         #Upload the file to the server, do the work of converting the pdf to a txt file and extract the author
-        fileSubmit = authorHandler()
-        if 'image' in upload:
-            name = upload.image.filename  #set the file name of the upload
-            fout = open(directory + '/' + name, 'w') #create a file to store the file the user uploaded in
-            fout.write(upload.image.file.read()) #write the uploaded file the ne newly created file
-            fout.close() #closes the newly uploaded file since the upload is complete
-            #fileSubmit throws an attribute exception if the author attribute can not be accessed
-            try:
-                authors = fileSubmit.GET(name)
-            except AttributeError as err:
-                web.ctx.status = '400 Could not extract the author.'
-                return
-            except ValueError as err:
-                web.ctx.status = '400 Not a valid paper'
-                return
-            #insert the authors into the database
-            inserter = networkHandler()
-            inserter.POST(authors)
-            web.ctx.status = '200 done'
+        fout = open(directory + '/' + name, 'w+') #create a file to store the file the user uploaded in
+        fout.write(upload.image.file.read()) #write the uploaded file the newly created file
+        fout.close() #closes the newly uploaded file since the upload is complete
+        #fileSubmit throws an attribute exception if the author attribute can not be accessed
+        try:
+            authors = fileSubmit.GET(name)
+        except AttributeError as err:
+            web.ctx.status = '400 Could not extract the author.'
+            return
+        except ValueError as err:
+            web.ctx.status = '400 Not a valid paper'
+            return
+        #insert the authors into the database
+        inserter = networkHandler()
+        inserter.POST(authors)
+        web.ctx.status = '200 done'
 
 class authorHandler:
     """Call the API on a given paper and generate the text file from the pdf. Take the name of the paper"""
@@ -177,6 +171,7 @@ class authorHandler:
         if(os.path.splitext('papers/' + name)[1] != '.pdf'):
             web.badrequest()
         if os.path.isfile('papers/' + name):
+            print("is file")
             #Call the API, generate a text file from the pdf so that we can extract the authors
             handler = service.FileHandler()
             result = handler.POST(os.path.abspath('papers/'+name))
@@ -188,6 +183,8 @@ class authorHandler:
             extractor = service.Extractor()
             result = (extractor.GET(os.path.abspath('papers/' + name + '.txt'), 'header'))
             paperName = result.keys()[0]
+            print("result")
+            print(result)
             #get the dictionary that contains a tuple that has the list of authors
             if(result[paperName]['authors']):
                 authors = result[paperName]['authors']['author']

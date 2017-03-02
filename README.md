@@ -1,17 +1,17 @@
 # paper-networks
 ### Installation
-Running this program required web.py, which can be downloaded by running the command
+Running this program requires web.py, which can be downloaded by running the command
 ```
-sudo easy_install web.py
+pip -r install requirnments.txt
 ```
-Or by cloning the most recent version of the github repo
-```
-git clone git://github.com/webpy/webpy.git
-ln -s `pwd`/webpy/web .
 
-```
 Once this is downloaded, simply run 
 ```python
 python upload.py
 ```
-A port number can be specified as an option after upload.py
+A port number can be specified as an option after upload.py. The default is port 8080.
+
+
+###Database
+The program assumes a sql database with username and password root. This can be changed in the upload.py file. A database dump is included in the root directory.
+You do not need to upload papers to view the network if you use the databse provided. 
