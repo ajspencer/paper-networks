@@ -1,0 +1,472 @@
+An Extremal Result for Paths a
+PAUL ERDÓS,b R. J. FAUDREE,` R. H. SCHELP,`,d AND
+M . SIMONOVITSe
+bAT&TBell Laboratories
+Murray Hill, New Jersey 07974
+and
+MMathematical Institute
+Hungarian Academy of Sciences
+Budapest, Hungary
+Department of Mathematical Sciences
+Memphis State University
+Memphis, Tennessee 38152
+INTRODUCTION
+One of the best known extremal results involving paths is the following one proved
+more than 25 years ago .
+THEOREM [2] : A graph G,„ on m vertices with at least [m(k - 1) + 1]/2 edges
+contains a path
+Pk+,
+on k + 1 vertices . Furthermore, when m = kt the graph tKk
+contains the maximal number of edges in an m vertex graph with no
+Pk+,
+and is the
+unique such graph .
+There are many other results in the literature that use that a graph with many
+edges or with high-degree vertices has a long path . Several such results are given in the
+references [1-4] .
+The problem we address here is of a similar nature . Let m, n, and k be fixed positive
+integers with m > n- k. We wish to determine the minimum value 1 such that each
+graph on m vertices with 1 vertices of degree at least n contains a
+Pk+, •
+A plausible minimum value for
+I
+is suggested by the following graph . Let
+m =
+t(n + 1) + r, 0 < r < n
+_
++ 1, with k < 2n + l . Then the graph consisting of t vertex
+disjoint copies of
+H = K„+,-L1k-,1/2J + K
+Lik _, 1
+/
+2
+J
+contains tL(k - 1)/21 vertices of
+degree n and no Pk+l . When k is even and r + L(k - 1)/21 >- n, the number of
+vertices of degree >- n in this graph can be increased by I to tL (k - 1) /21 + 1 without
+forcing the graphs to contain a Pk+ , . Simply take one of the vertices of degree
+L (k - 1)/21 and make it adjacent to the r vertices in no copy of H .
+Thus we have the following conjecture .
+CONJECTURE : Let m, n, and k be fixed positive integers with m > n >- k and set 5 = 2
+when k is even and S = 1 when k is odd. If G,„ is a graph on m vertices and at least I =
+L(k - 1)/21 Lm/(n + 1)] + S vertices of degree >- n, then G,,, contains a
+Pk+, .
+aThe research of one of the authors (R.J .F .) was supported by Office of Naval Research Grant
+N00014-88-K-0080 . The research of another author (R.H .S .) was partially supported by
+National Science Foundation Grant DMS-8603717 .
+dTo whom correspondence should be addressed .
+155
+156
+	
+ANNALS NEW YORK ACADEMY OF SCIENCES
+Although we do not prove the conjectured result, we do show that the value of I
+given in the conjecture is "essentially" correct . Much attention is given to the special
+case when n + 1 < m< 2n + l . In this case we show that approximately k/2 vertices of
+degree >_
+n is enough to guarantee that G,,, contains a Pk + , . Unfortunately, even for this
+interval of values we are not able to prove the exact statement of the conjecture .
+It should be mentioned that the problem considered is not of much interest when
+k n + 1 . In fact if m is such that there exist
+l,,1 2 , . . . , is with n + I _ l i s k for each
+i
+and E ;_, li = m, then K1, U K1z U . . - U K1 is a graph that has all its vertices of
+degree >_ n, yet contains no Pk+ , . This can always be done if m is large enough .
+RESULTS
+Before presenting the results we introduce some nonstandard notation . The symbol
+G,,, will always represent the graph of interest, which is assumed to have m vertices .
+The vertices of
+Gm will be partitioned into two classes, those of degree > n, which will
+be called high-degree
+vertices, and the remaining vertices, which will be called
+low-degree vertices . A path is called a high-low path if it begins and ends with
+high-degree vertices and alternates between high- and low-degree vertices as one
+moves from one end of the path to the other . Further a path is called a high-end path if
+it is simply a path beginning and ending with high-degree vertices ; nothing is assumed
+about the degree of the internal vertices of the path . Also degenerate paths are allowed,
+so that a single high-degree vertex is thought of as both a high-end path and a high-low
+path. Whenever E is affixed as a superscript on the usual symbol for a path, it is
+assumed the path is high-end . Thus PE will denote a high-end path on i vertices.
+A principal result of the paper establishes that the conjecture is approximately
+correct when m s 2n + 1 . In order to prove this we need two lemmas .
+LEMMA 1 : Let P('),
+p(2), .
+. . , P (`) be a vertex disjoint collection of high-end paths in
+G,„, m < 2n + 1 . Then there exists a high-end path P containing each of the paths P ( ' ) ,
+p(2),
+. . ,
+p(t) .
+COROLLARY 1 : There exists a high-end path P in G,,,, m < 2n + 1, containing all
+high-degree vertices of G,„ .
+A bit more notation is needed to state the second lemma . Consider a vertex disjoint
+family P ( ' ) , P ( ') , . . , P ( ` ) of high-low paths in G,,, . Partition the vertices of these paths
+into two sets
+H
+and
+L,
+where
+H
+consists of all the high-degree vertices of U ;_, P (') and
+L all low-degree vertices
+. Thinking of the vertices of each path P (') as numbered from
+left to right, let R denote the set of right-hand end-vertices of the t paths
+. Let H' be
+those high-degree vertices that are not right-hand end-vertices of some P (` ) , that is, let
+H' = H - R . For each h' E H' let V be that low-degree vertex in L that follows h' on
+some path P (` ) . A vertex h of H is good if h E R or if h = h' E H' and l' is adjacent to
+at least three vertices of R . As usual V(G) will denote the vertex set of the graph G .
+LEMMA
+2 : Let P('),
+p(2), .
+. . , P ( ` ) be a vertex-disjoint family of high-low paths in
+G,,,, and let h,, h z E H be a pair of good vertices . Then there exist t vertex-disjoint
+high-low paths Q ( ' ) , Q«>, . . , Q ( ` )
+such that U ,_, V(Q (') ) = U
+i
+f, V(P (' ) ) with h, and
+h2 end-vertices of some Q (') and Q (') , respectively,
+i
+j .
+1ERDŐS et al. : PATHS EXTREMAL RESULT
+	
+157
+THEOREM 1
+: Let G,,, contain at least k high-degree vertices, with m < 2n + 1 . Then
+Gm contains
+P
+E
+2k-7,
+P
+E
+Pk
+E
+,
+COROLLARY 2 : Under the conditions of the theorem, G,,, contains a
+when k < n/2 + 3
+when (n+ 1)/2+3<ksn
+when k > n + 1 .
+when k<n/2+3
+when (n + 1)/2 + 3 <k < n
+when k _ n+1 .
+COROLLARY 3 : Let G. contain at least k high-degree vertices, m < 2n . Then G,„
+contains a Cr where
+1 > 2k - 7, when k < n/2 + 3
+1>_n-1 when (n+1)/2+3<k--n
+I>_k when n+I-k.
+The graph (Kk
++
+K„+r+k) U Kn,_„-r shows (when k < n) that these results are
+close to the best possible . For k >- n + 1 the graph Kk shows Pk is the longest path
+possible .
+As more evidence that the conjecture is correct we prove the following theorem .
+THEOREM 2 : Let k be a positive integer. Then there exists a constant c such that if n
+is large enough with respect to k, each graph G,,,, m > n, with at least [m/(n + 1)]
+[(k - 1)/21 + c vertices of degree >-n contains a
+Pk+r •
+In the proof of the theorem we in fact show c >- 4 works when n k 2 - 3k + 1 .
+PROOFS
+Q
+= x,,
+X2,.x,~ = u, and
+Q(2) = Yr,Yv • • Yr2 = U2-
+Let U and U2 be the set of vertices adjacent to u, and u
+2, respectively, and set
+UZ = {Z I Z = x, if xi, E Q (-) U U2,
+Z = Yi+1 if Yi E Q (2) n U2, or
+z U U2 - (Q (') U Q (2)
+)}
+.
+Proof of Lemma 1 : Let P('),
+p(2),
+. . , P(`) be a vertex disjoint family of high-end
+paths in G,,, . Consider a vertex disjoint family Q( ' ), Q (2), . . , Q(J) of high-end paths
+whose vertex set includes all vertices of the family P ( ' ) ,
+p(2) ,
+. . , P(i) and is chosen such
+that j is minimal . We need only prove j = 1 .
+Suppose j > 1 and let
+158
+	
+ANNALS NEW YORK ACADEMY OF SCIENCES
+Since j is minimal, it is easy to check that u,, y, U, U Uz, I U2 1 _ I Uz 1, and U, n
+U2 = ~5 . Therefore, I U, U U'2 1 _ I U, I + I U21 s m - 2 - 2n - 1, contradicting that
+I U,1, 1 U2 1 _ n . Hence, j = 1 and the proof is complete . D
+Note that Corollary 1 is an immediate consequence of Lemma 1, since single
+high-degree vertices are considered to be high-low paths .
+Proof of Lemma 2 : Let P('), p(2)'
+. .
+. , P ( `) be a vertex disjoint family of high-low
+paths in G,„ and let h,, h 2 E H be a pair of good vertices . There are several cases to
+consider .
+Case 1 : h,, h 2 E H' and lie on the same path .
+Without loss of generality assume that h, and h 2 are vertices ofP( ' ) and that 1, and
+1 2 (the successors of h, and h2 , respectively) are adjacent to the right-hand end-vertices
+of
+p(2)
+and P (3) , respectively . (Note that a good vertex in H' requires t >- 3 .) Set
+P(1) - X1, X2, • , x; - h1, xi+1 - 1 1, Xi+2,
+. . . .
+xj - hz, Xj+1 - 12, xj+2,
+. . . .
+Xr,,
+P(2)
+= Y1, Y2, • • ,YrZ ,
+P(3)
+=
+Z1, Z2, • ,
+Z r3 .
+Replace these three paths by
+Q ( ' ) = Xi, X2, • , ht,
+z
+Q = Y1, Y2, • • YrZ ,
+11 = x
+;+1
+,
+x.+2>
+• • , x; = hz,
+Q(3) = Z1, Z2, Zr3, 12 = Xj+1, Xj+2, . . , Xr, •
+These three paths together with
+p(4),
+. . , P (` ) give the required family .
+Case 2: h l , h 2 E H' and lie on different paths .
+Without loss of generality assume h, is on path P ( ' ), h 2 is on path P (2) , and let 1, and
+1 2 be the successors of h, and h 2 , respectively . If 1, and 1 2 are adjacent to different
+right-hand end-vertices among the paths P(3), p(4), . . , P () , four new paths are found
+in a fashion similar to that described in Case 1 . The only other possibility is that both 1,
+and 1 2 are adjacent to the right-hand end-vertices of the first three paths and to no
+others . Thus in this case we can assume that
+PM
+= Xl, Xv . . .
+. x l = h,, x i +l = 11, x,+2, • , X rr
+P(2) = Y1,Yz, • • Yj = hz,Yj+1
+=
+12,Yj+2, • • ,Yr2
+,
+P(3)
+=
+Z1, Z2, ,
+Z r3 .
+Then replace these paths by
+Q (1) = X1, X2, ,
+xj = hl,
+Q(2)
+=Y1,Yz,
+-,y;
+hz,
+Q (3) = Xr	Xi+l = 11,Yrp Yj+l =
+12, Zz3,
+Zr3_,,
+. . , Z, .
+These paths together with
+p(4),
+. . , P ( ` ) again give the required family .
+ERDŐS et al. : PATHS EXTREMAL RESULT
+	
+159
+Case 3
+: h,
+E
+H' and hz
+E
+R and lie on the same path .
+Without loss of generality assume
+Po)
+- xl,
+X" . • , x ; -
+hl, xí+1
+= 11, xi+z, • • ,
+xr, =
+hz,
+P(2) = Y1,Yz,
+. . .
+,Yr 2
+with 1, adjacent to y rz . Replace these paths by
+Q (1) -
+(z)
+Q = v;,Yz> • • > Yrz, 1, = x;+1 , x;+z, xr, = hz
+to obtain the desired family .
+Case 4: h, E H' and hz E R and lie on different paths .
+We may assume
+P ( ' )
+= XI, x2, • ,
+xi
+= hl,
+x
+i+1 =
+11,
+x;+2,
+• , xr,,
+p(z) =YI,Y2,
+. . .
+Yr
+2 - hz,
+p(3)
+= Zl, Z2> , Zr,
+with 1, adjacent to zr3 . Then replace P (1) and P (3) by
+Q(')=x;,xz, • • ,x;=h1,
+Q (3)
+= Zl,
+2 2,
+,
+Zr3,
+h
+- xi+1, xi+2, , x r,
+to obtain an appropriate family .
+Case 5 : h,, h z E R
+.
+There is nothing to prove, since the original set of paths P ( ' ) , P (z) , . . , P (` ) fulfill
+the required conditions . O
+Proof of Theorem 1 : Partition the set of vertices of G,„ into two sets H and L where
+H denotes the set of high-degree vertices and L the low-degree vertices of the graph .
+Form a minimal family (minimal number of paths) of disjoint high-low paths P ( ' ),
+P (z) , . . , P(') such that all vertices of H are included in this family of paths
+. Recall that
+this is possible, since single vertices are allowed as high-low paths
+. Let L, be the subset
+of L of low-degree vertices used in the family of paths and let
+LZ = L - L, be the
+remaining low-degree vertices .
+Observe that
+I LI
+I + t = IH I and by Lemma 1 that there exists a high-end path P on
+I HI + I L, I vertices . Since I H I+ I L, I= 2 1 H I- t and I H I >- t, it follows that P has at
+least k vertices . Hence the theorem holds when k >- n + 1 .
+We assume for the remainder of the proof that 5 s k < n . Note that when k < 4
+there is nothing to prove . Choose k, and x such that k, + x = k - IHI with k, _
+(n + 1)/2 when k >- (n + 1)/2 + 3, and x = 3 when k s n/2 + 3 .
+Since P has I HI + I L I I = 2k - t = 2k, + 2x - t vertices, the proof is complete
+160
+	
+ANNALS NEW YORK ACADEMY OF SCIENCES
+if
+n-1, when k __>_ (n + 1)/2 + 3
+2k,+2x-t- (1)
+2k - 7, when k < n/2 + 3 .
+This means that we can assume this inequality fails so that t >_ 2x + 3 when k >
+(n+ 1)/2+3,andt - 8=2x +2 when k<-n/2+3 .
+To continue the proof we make some additional observations . Let s be the number
+of good vertices, in the sense of Lemma 2, in the paths P ( ' ) , P (z) , . . , P (` ) . From the
+minimality of t it follows from Lemma 2 that each vertex of L z is adjacent to at most
+one of the s good vertices . Further, since the good vertices are of high-degree, each of
+these vertices has at least n - I L,
+I -
+IHI + 1 adjacencies to vertices of Lz . Hence
+s(n - ~L,I -
+IHI+1)<IL2I=m
+- 2k+t. (2)
+Also for each vertex h of H that is not good the vertex that follows it on its path P ( ' ) is
+adjacent to at most two of the t right-hand end-vertices of the paths P ( ' ) , P (2) , . . , P (` ) .
+But then these t right-hand end-vertices have a total of at least
+(I HI - s) (t - 2) + t
+(n -
+I
+L, I - I HI + 1) adjacencies to the vertices of L Z . From the minimality of t we
+obtain
+(IHI-s)(t-2)+t(n-IL,I-IHI+1)<IL 2 I=m-2k+t. (3)
+To complete the proof we need only show that under the assumed conditions, t >-
+2x+ 3when k>-(n+1)/2+ 3andt - 8=2x +2 when k<--n/2 +3, either
+inequality (2) or (3) fails to hold . Checking that this is the case amounts to looking at the
+number of good vertices in H. It is straightforward to show that inequality (2) fails
+when there are at least (2k + t)/3 good vertices, while inequality (3) fails when there
+are less than (2k + t)/3 good vertices . This completes the proof of the theorem. El
+Corollary 2 is an immediate consequence of Theorem 1, since for k- n each of the
+end-vertices of the existing high-end path has an additional adjacency off the path .
+Proof of Corollary 3 : Consider the high-end path PE,
+2k - 7, when k :< n/2 + 3
+i 1, when (n + 1)/2 + 3 < k < n, guaranteed by Theorem 1
+when k _ n+ 1 .
+Let the vertices of this path be u = x,, x Z , . . . , x; = v with U the set of neighbors of u
+and 'V the set of neighbors of v . Set V' _ {z J z = x; + , ifx; E Vor z E V - PE} . It is easy
+to see if V' n U 0, then G,,, contains a C,, I >- i . Also, I V' J = I V1, I Ul >- n with u
+V' U U. But then I V' U UI < m - 1 < 2n - 1, so that V' n U and G„, contains
+the required cycle . F1
+Proof ofTheorem 2 : Assume n is considerably larger than k . In fact, we see in what
+follows that n >- k 2 - 3 k + 1 will suffice . Corollary 2 implies the result of this theorem
+when m < 2n + 1 and c >- 4. Hence we assume m > 2n + 1 and that the theorem holds
+when the graph has less than m vertices .
+ERDŐS et al . : PATHS EXTREMAL RESULT
+	
+161
+Choose a maximal-length high-end path P on I vertices in G,,, . Let this path P be
+u = x 1 , x z , . . . , x, = v. We suppose G,,, contains no path on k + 1 vertices and reach a
+contradiction . Since P is a high-end path, this means l s k - 2 .
+Let N(u) and N(v) be the set of neighbors of the high-degree vertices a and v,
+respectively . Observe that neither N(u) - P nor N(v) - P contains high-degree
+vertices, since P is a high-end path of maximal length . Further
+IN(u)-P1,IN(v)-PI>_n-k+3 .
+There are two possibilities to consider .
+Case 1 : (N(u) - P) n (N(v) - P) ~. Let G' be the graph obtained from G,,, by
+deleting the vertices of (N(u) - P) U (N(v) - P) . Note that no vertex outside P of
+high-degree in G,,, has adjacencies into the set (N(u) - P) U (N(v) - P) . Thus G'
+has at most m - 2n + 2k - 6 vertices and at least [m/(n + 1)] [(k - 1)/2] + c -
+(k - 2) high-degree vertices . Since n >- k 2 - 3k + 1,
+[m-2nt+ 1 k-61[k	
+2
+	 11
+[n m+ 11 [k 2
+11
+and G' contains a P k+ ,, a contradiction to the supposition that G,„ contains no
+Pk+i
+Case 2: (N(u) - P) n (N(u) - P) ~5 . Let w E(N(u) - P) n (N(v) - P) .
+Then w, u = x t , x Z , . . . , x l = v, w is a
+C,+1
+in G,„ . Clearly no two consecutive vertices on
+Cl,, are of high-degree ; otherwise, G,,, contains a high-end path on 1 + 1 vertices . Thus
+C,+1
+contains at most (l + 1)/2 <- (k - 1)/2 high-degree vertices. Also as in Case 1 no
+vertex outside P of high-degree has an adjacency into the set (N(u) - P) U
+(N(v) - P) . If
+Cl+,
+has fewer than (k - 1) /2 vertices of high-degree, then let G' be
+the graph obtained from G,,, by deleting the vertices of N(u) - P, while if
+C,+,
+has
+precisely (k - 1)/2 vertices of high-degree, then let G' be graph obtained by deleting
+the vertices of N(u) U P . In each case the number of vertices of high-degree in G' is at
+least [m/(n + 1)] [(k - 1)/2] + c - z where z is the number of high-degree vertices
+on
+C,+1 .
+This is true since when Cl+ , has exactly (k - 1)/2 vertices of high-degree,
+each high-degree vertex outside P has no adjacency to vertices of P. But in each of
+these two cases
+[IG
+	
+11
+11 [k 2
+1
+1+c ~[n+ 1] [k 2
+1 1
++c-z
+so that G' contains a P k+ ,, a contradiction. This contradiction completes the proof of
+the theorem. O
+QUESTIONS
+A natural question concerns the extension of the result of Corollary 3 for cycles . In
+fact, does the graph obtained by identifying appropriate vertices from L (m - 1)/n]
+copies of H =
+K„+1_L(k_1)/2J
++ KL(k_,)/2J , one vertex from each copy of H, suggest the
+magnitude of the number of vertices of high-degree necessary for a graph Gm to contain
+162
+	
+ANNALS NEW YORK ACADEMY OF SCIENCES
+a C,, I >- k? It is possible that the following holds . If k < n, and Gm contains no C,
+(I > k), then G,„ has at most L (k - 1)/21 L (m - I)/n] + I vertices of degree >-n .
+Another question related to the original conjecture occurs when the graph G,„ is
+assumed to be connected. The graph, consisting of L(m/(n + 1)J copies of H =
+K,i-L(k+i)/4J
++
+KL(k+i)/4J
+identified at a fixed vertex of each KL(k+1)/4J , contains no
+Pk}1
+but does contain Lm/(n + 1)J L(k + 1)/41
+high-degree vertices. This is
+approximately half of the number of high-degree vertices in the original conjecture . Is
+there a better extremal example, or does connectivity lower the extremal number of the
+conjecture by a factor of 2?
+REFERENCES
+1 . DiRAC, G. H . 1963 . Extensions of Turan's theorem on graphs, Acta Math . Acad . Sci . Hung .
+14:417-422 .
+2 . ERDŐS, P . & T . GALLAI . 1959 . On maximal paths and circuits in graphs . Acta Math . Acad .
+Sci . Hung . 10: 337-356 .
+3 . FAuDREE, R . J . & R. H. SCHELP . 1975 . Path-path numbers in multicolorings . J . Comb .
+Theory B . 19 : 150-160 .
+4 . PóSA, L . 1976 . Hamiltonian circuits in random graphs . Discrete Math. 14 : 359-364 .
