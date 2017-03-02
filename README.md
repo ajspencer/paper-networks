@@ -9,7 +9,7 @@ Once this is downloaded, simply run
 ```python
 python upload.py
 ```
-A port number can be specified as an option after upload.py. The default is port 8080.
+A port number can be specified as an option after upload.py. The default is port 8080. Navigating to localhost:[port] will display the homepage.
 
 
 ###Database
